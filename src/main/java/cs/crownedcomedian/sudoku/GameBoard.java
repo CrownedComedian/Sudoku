@@ -11,10 +11,14 @@ public class GameBoard extends SquareGrid<Box> {
     public GameBoard() {
         super();
     }
+
+    public GameBoard(int root) {
+        super(root);
+    }
     
     @Override
     protected Box fillCell() {
-        return new Box();
+        return new Box(SQROOT);
     }
 
     public ImmutableSquare getSquare(int row, int col) {

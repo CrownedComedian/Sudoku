@@ -14,12 +14,22 @@ import java.util.ArrayList;
  */
 public abstract class SquareGrid<T> {
     private final ArrayList<ArrayList<T>> grid = new ArrayList<>();
-    protected final int SQROOT = 3;
+    public final int SQROOT;
+
+    public SquareGrid(int root) {
+        SQROOT = root;
+        init();
+    }
 
     public SquareGrid() {
+        SQROOT = 3;
+        init();
+    }
+
+    private void init() {
         for(int i = 0; i < SQROOT; i++) {
-        	grid.add(new ArrayList<T>());
-        	
+            grid.add(new ArrayList<T>());
+
             for(int j = 0; j < SQROOT; j++) {
                 grid.get(i).add(fillCell());
             }
