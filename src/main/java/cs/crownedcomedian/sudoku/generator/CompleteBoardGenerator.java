@@ -37,20 +37,24 @@ public final class CompleteBoardGenerator implements GameGenerator {
     }
 
     private boolean completeSquare(GameBoard board, int squareNum) {
-        if(squareNum >= 81) {
+        final int size = board.SQROOT*board.SQROOT;
+
+        if(squareNum >= size*size) {
             return true;
         }
 
-        ArrayList<Integer> possibleValues = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+        ArrayList<Integer> possibleValues = new ArrayList<Integer>();
+        for(int i = 1; i <= size; i++) {
+            possibleValues.add(i);
+        }
 
         while(possibleValues.size() != 0) {
             int input = rand.nextInt(possibleValues.size());
-            SquareInputResponse response = board.setValue(squareNum/9, squareNum%9, possibleValues.get(input));
+            SquareInputResponse response = board.setValue(squareNum/size, squareNum%size, possibleValues.get(input));
             possibleValues.remove(input);
             
             if(response.success == true) {
                 if(completeSquare(board, ++squareNum)) { return true; }
-                
             }
         }
 

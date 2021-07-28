@@ -22,7 +22,7 @@ public class GameBoard extends SquareGrid<Box> {
     }
 
     public ImmutableSquare getSquare(int row, int col) {
-        return new ImmutableSquare(getCell(row/3, col/3).getCell(row%SQROOT, col%SQROOT).getValue());
+        return new ImmutableSquare(getCell(row/SQROOT, col/SQROOT).getCell(row%SQROOT, col%SQROOT).getValue());
     }
 
     /**
@@ -32,7 +32,10 @@ public class GameBoard extends SquareGrid<Box> {
      * @return true if this is a valid integer for the rules of sudoku
      */
     public SquareInputResponse setValue(int row, int col, int value) throws IndexOutOfBoundsException, UnsupportedOperationException {
-        if(value < 0 || value > 9) {
+        if(value == 0) {
+
+        }
+        if(value < 0 || value > (SQROOT*SQROOT)) {
             throw new IndexOutOfBoundsException("input value is out of bounds!");
         }
 
@@ -55,7 +58,7 @@ public class GameBoard extends SquareGrid<Box> {
     public List<ImmutableSquare> getRow(int rowNum) {
         ArrayList<ImmutableSquare> row = new ArrayList<>();
 
-        for(int i = 0; i < SQROOT*SQROOT; i+=3) { //0, 3, 6
+        for(int i = 0; i < SQROOT*SQROOT; i+=SQROOT) { //0, 3, 6
             Box b = getBox(rowNum, i);
 
             for(int j = 0; j < SQROOT; j++) {
@@ -69,7 +72,7 @@ public class GameBoard extends SquareGrid<Box> {
     public List<ImmutableSquare> getCol(int colNum) {
         ArrayList<ImmutableSquare> col = new ArrayList<>();
 
-        for(int i = 0; i < SQROOT*SQROOT; i+=3) { //0, 3, 6
+        for(int i = 0; i < SQROOT*SQROOT; i+=SQROOT) { //0, 3, 6
             Box b = getBox(i, colNum);
 
             for(int j = 0; j < SQROOT; j++) {
@@ -124,7 +127,7 @@ public class GameBoard extends SquareGrid<Box> {
     	    	sb.append(getSquare(i, j).getValue() + " ");
         	}
     		
-    		sb.deleteCharAt(sb.length() -1);
+    		sb.deleteCharAt(sb.length() -1); //remove trailing whitespace space
     		sb.append('\n');
     	}
     	

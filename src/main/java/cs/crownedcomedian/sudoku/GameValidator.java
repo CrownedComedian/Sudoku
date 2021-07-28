@@ -24,8 +24,8 @@ public final class GameValidator {
         checkRow(conflicts, row, col, value);
         checkCol(conflicts, row, col, value);
         checkBox(conflicts, row, col, value);
-        checkBoxRow(conflicts, row, col, value);
-        checkBoxCol(conflicts, row, col, value);
+//        checkBoxRow(conflicts, row, col, value);
+//        checkBoxCol(conflicts, row, col, value);
 
         if(conflicts.size() == 0) {
             return new SquareInputResponse();
