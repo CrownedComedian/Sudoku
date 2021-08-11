@@ -24,6 +24,7 @@ public final class GameValidator {
         checkRow(conflicts, row, col, value);
         checkCol(conflicts, row, col, value);
         checkBox(conflicts, row, col, value);
+        //TODO - implement check box row&col for varying size boards
 //        checkBoxRow(conflicts, row, col, value);
 //        checkBoxCol(conflicts, row, col, value);
 
@@ -39,7 +40,7 @@ public final class GameValidator {
     	
         List<ImmutableSquare> row = board.getRow(rowNum);
 
-        for(int i = 0; i < 9; i++) {
+        for(int i = 0; i < row.size(); i++) {
             if(i != squareNum) {
             	if(row.get(i).getValue() == inputVal) {
             		conflictingCells.add(new Cell(rowNum, i));
@@ -67,12 +68,12 @@ public final class GameValidator {
     	
     	Box b = board.getBox(rowNum, colNum);
 
-        for(int i = 0; i < 3; i++) {
-            for(int j = 0; j < 3; j++) {
+        for(int i = 0; i < board.SQROOT; i++) {
+            for(int j = 0; j < board.SQROOT; j++) {
             	
-                if( !(i == rowNum%3 && j == colNum%3) ) {
+                if( !(i == rowNum% board.SQROOT && j == colNum% board.SQROOT) ) {
                 	if(b.getCell(i, j).getValue() == inputVal) {
-                        conflictingCells.add(new Cell(rowNum/3*3 +i, colNum/3*3 +j));
+                        conflictingCells.add(new Cell(rowNum/board.SQROOT*board.SQROOT +i, colNum/board.SQROOT*board.SQROOT +j));
                 	}
                 }
             }

@@ -1,17 +1,16 @@
 package cs.crownedcomedian.sudoku;
 
-import cs.crownedcomedian.sudoku.generator.ChistleStrategy;
-import cs.crownedcomedian.sudoku.generator.CompleteBoardGenerator;
+import cs.crownedcomedian.sudoku.generator.solution.recursive.BasicRecursiveStrategy;
 
 public class Sudoku {
 
     public static void main(String[] args) {
-        GameBoard gb = new ChistleStrategy().generateNew();
-        gb.setValue(0, 0, 5);
-//        gb.setValue(0, 2, 5);
+        GameBoard gb = new BasicRecursiveStrategy().generateNew();
+//        gb.setValue(0, 0, 2);
+//        gb.setValue(1, 2, 2);
 //        gb.setValue(1, 2, 4);
 //        gb.setValue(2, 2, 7);
-        gb.setValue(0, 0, 0);
+//        gb.setValue(0, 0, 0);
 //        SquareInputResponse res = gb.setValue(7, 1, 5);
         System.out.println(gb.toString());
     }
