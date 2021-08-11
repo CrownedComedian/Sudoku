@@ -2,6 +2,10 @@ package cs.crownedcomedian.sudoku;
 
 import cs.crownedcomedian.sudoku.generator.solution.recursive.BasicRecursiveStrategy;
 
+/**
+ * Classification used for stand-alone execution entry.
+ * Not of use to applications that use the sudoku module as a part of a whole.
+ */
 public class Sudoku {
 
     public static void main(String[] args) {

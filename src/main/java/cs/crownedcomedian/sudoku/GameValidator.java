@@ -5,15 +5,29 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Responsible for holding methods to check if new input is valid.
+ * Responsible for holding methods to check if new input into a Gameboard object is valid.
  */
 public final class GameValidator {
     private final GameBoard board;
 
+    /**
+     * Creates a new Instance and uses values from board to perform checks.
+     *
+     * @param board the Gameboard to check against.
+     */
     public GameValidator(GameBoard board) {
         this.board = board;
     }
 
+    /**
+     * Returns a SquareInputResponse of the results of the attempt to change the value of the square at the given (row, col) location.
+     *
+     * @param row the row of the value.
+     * @param col the column of the value.
+     * @param value the new value for the specified square.
+     *
+     * @return response object to show if the attempt succeeded or failed.
+     */
     public SquareInputResponse validateInput(int row, int col, int value) {
         if(value == 0) {
             return new SquareInputResponse();

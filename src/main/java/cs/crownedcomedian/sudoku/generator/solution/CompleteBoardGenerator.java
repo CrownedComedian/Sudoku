@@ -3,6 +3,9 @@ package cs.crownedcomedian.sudoku.generator.solution;
 import cs.crownedcomedian.sudoku.Difficulty;
 import cs.crownedcomedian.sudoku.GameBoard;
 
+/**
+ * Interface for strategy classes.
+ */
 public interface CompleteBoardGenerator {
     public GameBoard generateNew();
 

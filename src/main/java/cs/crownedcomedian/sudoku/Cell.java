@@ -1,8 +1,17 @@
 package cs.crownedcomedian.sudoku;
 
+/**
+ * POJO that holds integer values for the row and column of a Cell.
+ */
 public class Cell {
     public final int row, col;
 
+    /**
+     * Creates a new instance.
+     *
+     * @param row the row number of this Cell.
+     * @param col the column number of this Cell.
+     */
     public Cell(int row, int col) {
         this.row = row;
         this.col = col;

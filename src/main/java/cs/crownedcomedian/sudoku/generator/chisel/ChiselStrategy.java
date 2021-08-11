@@ -7,6 +7,9 @@ import cs.crownedcomedian.sudoku.generator.solution.recursive.BasicRecursiveStra
 
 import java.util.Random;
 
+/**
+ * Creates a complete board using the BasicRecursiveStrategy class and then removes some of the values to create an incomplete board.
+ */
 public class ChiselStrategy implements GameGenerator {
 	private Difficulty difficulty;
 

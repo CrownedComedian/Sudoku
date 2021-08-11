@@ -7,6 +7,9 @@ import cs.crownedcomedian.sudoku.generator.solution.CompleteBoardGenerator;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Creates a completely filled board by recursively attempting to set the next square's value until the whole board is full.
+ */
 public class BasicRecursiveStrategy implements CompleteBoardGenerator {
     private final Random rand;
     private int root = 3;

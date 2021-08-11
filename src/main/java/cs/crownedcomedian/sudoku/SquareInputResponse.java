@@ -5,7 +5,7 @@ import java.util.Set;
 /**
  * Holds a boolean value representing the result of the input.
  * If the input was a valid move, success = true, and conflictingSquares = null.
- * If the input was an invalid move, success = false, and the conflictingSquares are stored.
+ * If the input was an invalid move, success = false, and the conflictingSquares are stored as a Set of Cell objects.
  */
 public class SquareInputResponse {
     public final boolean success;
